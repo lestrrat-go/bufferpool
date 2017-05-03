@@ -8,6 +8,16 @@ import (
 // Package bufferpool is a simple wrapper around sync.Pool that is specific
 // to bytes.Buffer.
 
+var global BufferPool
+
+func Get() *bytes.Buffer {
+	return global.Get()
+}
+
+func Release(buf *bytes.Buffer) {
+	global.Release(buf)
+}
+
 type BufferPool struct {
 	pool sync.Pool
 }
