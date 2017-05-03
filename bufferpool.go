@@ -8,7 +8,7 @@ import (
 // Package bufferpool is a simple wrapper around sync.Pool that is specific
 // to bytes.Buffer.
 
-var global BufferPool
+var global = New()
 
 func Get() *bytes.Buffer {
 	return global.Get()
